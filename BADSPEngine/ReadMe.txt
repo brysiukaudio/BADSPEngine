@@ -1,15 +1,15 @@
 ========================================================================
-    DYNAMIC LINK LIBRARY : BADSPEngine Project Overview
+    STATIC LIBRARY : BADSPEngine Project Overview
 ========================================================================
 
-AppWizard has created this BADSPEngine DLL for you.  
+AppWizard has created this BADSPEngine library project for you.
 
-This file contains a summary of what you will find in each of the files that
-make up your BADSPEngine application.
+No source files were created as part of your project.
+
 
 BADSPEngine.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard. 
-    It contains information about the version of Visual C++ that generated the file, and 
+    This is the main project file for VC++ projects generated using an Application Wizard.
+    It contains information about the version of Visual C++ that generated the file, and
     information about the platforms, configurations, and project features selected with the
     Application Wizard.
 
@@ -20,19 +20,10 @@ BADSPEngine.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-BADSPEngine.cpp
-    This is the main DLL source file.
-
-BADSPEngine.h
-    This file contains a class declaration.
-
-AssemblyInfo.cpp
-	Contains custom attributes for modifying assembly metadata.
-
 /////////////////////////////////////////////////////////////////////////////
 Other notes:
 
-AppWizard uses "TODO:" to indicate parts of the source code you
+AppWizard uses "TODO:" comments to indicate parts of the source code you
 should add to or customize.
 
 /////////////////////////////////////////////////////////////////////////////
