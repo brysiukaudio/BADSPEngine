@@ -9,5 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Component.h" />
+    <ClInclude Include="Engine\EngineDefinitions.h" />
+    <ClInclude Include="Engine\Engine.h" />
   </ItemGroup>
 </Project>
