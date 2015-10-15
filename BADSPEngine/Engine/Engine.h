@@ -31,10 +31,11 @@ public:
 
 	int getSampleRate();
 	int getFrameSize();
-	void setInputBuffer(float** input);
-	void setOutputBuffer(float** output);
+
 	float ** getInputBuffer();
 	float ** getOutputBuffer();
+
+	void processAudio(float ** liveIn, float ** liveOut);
 
 	void init();
 	void process();

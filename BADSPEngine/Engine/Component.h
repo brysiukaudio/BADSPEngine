@@ -2,8 +2,8 @@
 #include "EngineDefinitions.h"
 class Component {
 private:
-	float * inBuffer[NUM_OF_CHANNELS];
-	float * outBuffer[NUM_OF_CHANNELS];
+	float * m_pinBuffer[NUM_OF_CHANNELS];
+	float * m_poutBuffer[NUM_OF_CHANNELS];
 	void processSubComponent();
 public:
 	Component();
@@ -12,4 +12,8 @@ public:
 	void init();
 	void process();
 	void reset();
+
+	void setBuffers(float ** inBuffer, float ** outBuffer);
+	void setInputBuffer(float ** inBuffer);
+	void setOutputBuffer(float ** outBuffer);
 };
