@@ -19,7 +19,7 @@ private:
 	float *	internalBuffer[2][NUM_OF_CHANNELS];
 	int sampleRate;
 	int frameSize;
-	std::list<Component> componentList;
+	std::list<Component*> componentList;
 	
 
 public:
@@ -27,7 +27,7 @@ public:
 	~Engine();
 
 
-	void addComponent(Component component);
+	void addComponent(Component * component);
 
 	int getSampleRate();
 	int getFrameSize();

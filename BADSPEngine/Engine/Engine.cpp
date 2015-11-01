@@ -37,17 +37,18 @@ Engine::~Engine() {
 
 }
 
-void Engine::addComponent(Component component) {
-	assert(component);
-	
+void Engine::addComponent(Component* component) {
+	assert(component != nullptr);
+
+
 	if (componentList.empty()) {
-		component.setBuffers(this->inBuffer, this->outBuffer);
+		component->setBuffers(this->inBuffer, this->outBuffer);
 		componentList.push_back(component);
 	}
 	else {
 		int bufferIt = (componentList.size - 1) % 2;
-		componentList.back().setOutputBuffer(this->internalBuffer[bufferIt]);
-		component.setBuffers(this->internalBuffer[bufferIt], this->outBuffer);
+		componentList.back()->setOutputBuffer(this->internalBuffer[bufferIt]);
+		component->setBuffers(this->internalBuffer[bufferIt], this->outBuffer);
 		componentList.push_back(component);
 	}
 	
@@ -75,9 +76,27 @@ void Engine::processAudio(float ** liveIn, float ** liveOut) {
 	assert(liveOut != nullptr);
 	
 	for (int i = 0; i < NUM_OF_CHANNELS; i++) {
-		memcpy(this->inBuffer[i], liveIn[i], this->frameSize);
-		memcpy(liveOut[i], this->outBuffer[i], this->frameSize);
+		memcpy(this->inBuffer[i], liveIn[i], this->frameSize*sizeof(float));
+		memcpy(liveOut[i], this->outBuffer[i], this->frameSize*sizeof(float));
 	}
 	
 	this->process();
+}
+
+void Engine::init() {
+	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+		(*currentComponent)->init();
+	}
+}
+
+void Engine::process() {
+	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+		(*currentComponent)->process();
+	}
+}
+
+void Engine::reset() {
+	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+		(*currentComponent)->reset();
+	}
 }
