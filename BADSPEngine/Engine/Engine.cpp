@@ -46,7 +46,7 @@ void Engine::addComponent(Component* component) {
 		componentList.push_back(component);
 	}
 	else {
-		int bufferIt = (componentList.size - 1) % 2;
+		int bufferIt = (componentList.size() - 1) % 2;
 		componentList.back()->setOutputBuffer(this->internalBuffer[bufferIt]);
 		component->setBuffers(this->internalBuffer[bufferIt], this->outBuffer);
 		componentList.push_back(component);
