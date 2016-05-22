@@ -10,24 +10,25 @@ Copyright BrysiukAudio
 #pragma once
 #include <list>
 #include "EngineDefinitions.h"
-#include "Component.h"
+#include "DSPComponent.h"
 
 class Engine {
 private:
-	float * inBuffer[NUM_OF_CHANNELS];
-	float * outBuffer[NUM_OF_CHANNELS];
-	float *	internalBuffer[2][NUM_OF_CHANNELS];
-	int sampleRate;
+	float ** inBuffer;
+	float ** outBuffer;
+	float ** internalBuffer[2];
+	double sampleRate;
 	int frameSize;
-	std::list<Component*> componentList;
+	int numOfChannels;
+	std::list<DSPComponent*> componentList;
 	
 
 public:
-	Engine(int sampleRate, int frameSize);
+	Engine(double sampleRate, int frameSize, int numOfChannels);
 	~Engine();
 
 
-	void addComponent(Component * component);
+	void addComponent(DSPComponent * component);
 
 	int getSampleRate();
 	int getFrameSize();

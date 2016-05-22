@@ -5,11 +5,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\Component.cpp" />
+    <ClCompile Include="Algorithms\Passthrough.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Component.h" />
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Engine\DSPComponent.h" />
+    <ClInclude Include="Algorithms\Passthrough.h" />
   </ItemGroup>
 </Project>

@@ -138,11 +138,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Component.cpp" />
+    <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Component.h" />
+    <ClInclude Include="Algorithms\Passthrough.h" />
+    <ClInclude Include="Engine\DSPComponent.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\EngineDefinitions.h" />
   </ItemGroup>

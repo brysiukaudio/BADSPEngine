@@ -9,12 +9,17 @@ Copyright BrysiukAudio
 
 #include "Engine.h"
 
-Engine::Engine(int sampleRate, int frameSize)
+Engine::Engine(double sampleRate, int frameSize, int numOfChannels)
 {
 	this->sampleRate = sampleRate;
 	this->frameSize = frameSize;
+	this->numOfChannels = numOfChannels;
+	this->inBuffer = new float*[numOfChannels]();
+	this->outBuffer = new float*[numOfChannels]();
+	this->internalBuffer[0] = new float*[numOfChannels]();
+	this->internalBuffer[1] = new float*[numOfChannels]();
 	
-	for (int i = 0; i < NUM_OF_CHANNELS; i++) {
+	for (int i = 0; i < this->numOfChannels; i++) {
 		this->inBuffer[i] = new float[frameSize]();
 		this->outBuffer[i] = new float[frameSize]();
 		this->internalBuffer[0][i] = new float[frameSize]();
@@ -24,7 +29,7 @@ Engine::Engine(int sampleRate, int frameSize)
 }
 
 Engine::~Engine() {
-	for (int i = 0; i < NUM_OF_CHANNELS; i++) {
+	for (int i = 0; i < this->numOfChannels; i++) {
 		delete[] this->inBuffer[i];
 		delete[] this->outBuffer[i];
 		delete[] this->internalBuffer[0][i];
@@ -37,7 +42,7 @@ Engine::~Engine() {
 
 }
 
-void Engine::addComponent(Component* component) {
+void Engine::addComponent(DSPComponent* component) {
 	assert(component != nullptr);
 
 
@@ -75,7 +80,7 @@ void Engine::processAudio(float ** liveIn, float ** liveOut) {
 	assert(liveIn != nullptr);
 	assert(liveOut != nullptr);
 	
-	for (int i = 0; i < NUM_OF_CHANNELS; i++) {
+	for (int i = 0; i < this->numOfChannels; i++) {
 		memcpy(this->inBuffer[i], liveIn[i], this->frameSize*sizeof(float));
 		memcpy(liveOut[i], this->outBuffer[i], this->frameSize*sizeof(float));
 	}
@@ -84,19 +89,19 @@ void Engine::processAudio(float ** liveIn, float ** liveOut) {
 }
 
 void Engine::init() {
-	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+	for (std::list<DSPComponent*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
 		(*currentComponent)->init();
 	}
 }
 
 void Engine::process() {
-	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+	for (std::list<DSPComponent*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
 		(*currentComponent)->process();
 	}
 }
 
 void Engine::reset() {
-	for (std::list<Component*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
+	for (std::list<DSPComponent*>::iterator currentComponent = componentList.begin(); currentComponent != componentList.end(); ++currentComponent) {
 		(*currentComponent)->reset();
 	}
 }
