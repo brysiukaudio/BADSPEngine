@@ -3,3 +3,5 @@
 /BADSPEngine.pdb
 /Engine.obj
 /Passthrough.obj
+*.lib
+*.obj
