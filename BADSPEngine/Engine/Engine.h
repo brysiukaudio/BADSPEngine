@@ -16,15 +16,15 @@ class Engine {
 private:
 	float ** inBuffer;
 	float ** outBuffer;
-	float ** internalBuffer[2];
 	double sampleRate;
 	int frameSize;
-	int numOfChannels;
+	int numOfInputChannels;
+	int numOfOutputChannels;
 	std::list<DSPComponent*> componentList;
 	
 
 public:
-	Engine(double sampleRate, int frameSize, int numOfChannels);
+	Engine(double sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~Engine();
 
 

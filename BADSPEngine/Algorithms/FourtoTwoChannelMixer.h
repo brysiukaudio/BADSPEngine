@@ -17,7 +17,7 @@ class FourtoTwoChannelMixer : public DSPComponent
 private:
 	virtual void processSubComponent();
 public:
-	FourtoTwoChannelMixer(float sampleRate, int frameSize, int numOfChannels);
+	FourtoTwoChannelMixer(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~FourtoTwoChannelMixer();
 
 	virtual void init();
