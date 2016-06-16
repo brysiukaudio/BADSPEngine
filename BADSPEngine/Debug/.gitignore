@@ -5,3 +5,4 @@
 /Passthrough.obj
 *.lib
 *.obj
+*.Build.CppClean.log
