@@ -6,11 +6,53 @@
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
+    <ClCompile Include="Engine\Record.cpp" />
+    <ClCompile Include="FileIO\include\Array.cpp" />
+    <ClCompile Include="FileIO\include\Collection.cpp" />
+    <ClCompile Include="FileIO\src\FileIO.cpp" />
+    <ClCompile Include="FileIO\src\Options.cpp" />
+    <ClCompile Include="FileIO\src\Options_private.cpp" />
+    <ClCompile Include="FileIO\src\soundfilehelpers.cpp" />
+    <ClCompile Include="FileIO\src\SoundFileRead.cpp" />
+    <ClCompile Include="FileIO\src\SoundFileWrite.cpp" />
+    <ClCompile Include="FileIO\src\SoundHeader.cpp" />
+    <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\DSPComponent.h" />
     <ClInclude Include="Algorithms\Passthrough.h" />
+    <ClInclude Include="Engine\Record.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\accesssound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\atcsound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\convertsound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\editsound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\filesound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\mulaw.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\performsound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\snddriver_client.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\sound.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\sounddriver.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\sounderror.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\soundstruct.h" />
+    <ClInclude Include="FileIO\doc\NextFormat\utilsound.h" />
+    <ClInclude Include="FileIO\include\Array.h" />
+    <ClInclude Include="FileIO\include\Collection.h" />
+    <ClInclude Include="FileIO\include\FileIO.h" />
+    <ClInclude Include="FileIO\include\Options.h" />
+    <ClInclude Include="FileIO\include\Options_private.h" />
+    <ClInclude Include="FileIO\include\sigConfiguration.h" />
+    <ClInclude Include="FileIO\include\soundfile.h" />
+    <ClInclude Include="FileIO\include\soundfilehelpers.h" />
+    <ClInclude Include="FileIO\include\SoundFileRead.h" />
+    <ClInclude Include="FileIO\include\SoundFileWrite.h" />
+    <ClInclude Include="FileIO\include\SoundHeader.h" />
+    <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FileIO\doc\NextFormat\index.html" />
+    <None Include="FileIO\doc\WaveFormat\index.html" />
+    <None Include="FileIO\index.html" />
   </ItemGroup>
 </Project>
