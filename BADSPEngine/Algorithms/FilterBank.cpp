@@ -12,10 +12,11 @@ Copyright MandrykAudio
 #include "FilterBank.h"
 #include "..\Engine\DSPComponent.h"
 
-FilterBank::FilterBank(float sampleRate, int frameSize, int numOfChannels) {
+FilterBank::FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels) {
 	this->fsampleRate = sampleRate;
 	this->iframeSize = frameSize;
-	this->inumOfChannels = numOfChannels;
+	this->inumOfInputChannels = numOfInputChannels;
+	this->inumOfOutputChannels = numOfOutputChannels;
 }
 
 FilterBank::~FilterBank() {
@@ -31,7 +32,7 @@ void FilterBank::reset() {
 }
 
 void FilterBank::process() {
-	for (int i = 0; i < inumOfChannels; i++) {
+	for (int i = 0; i < inumOfInputChannels; i++) {
 		for (int j = 0; j < iframeSize; j++) {
 			this->m_poutBuffer[i][j] = fgain*this->m_pinBuffer[i][j];
 		}

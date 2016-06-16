@@ -18,7 +18,7 @@ class FilterBank : public DSPComponent
 private:
 	virtual void processSubComponent();
 public:
-	FilterBank(float sampleRate, int frameSize, int numOfChannels);
+	FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~FilterBank();
 
 

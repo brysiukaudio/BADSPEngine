@@ -4,7 +4,8 @@
 Record::Record(float sampleRate, int frameSize, int numOfChannels) {
 	this->fsampleRate = sampleRate;
 	this->iframeSize = frameSize;
-	this->inumOfChannels = numOfChannels;
+	this->inumOfInputChannels = numOfChannels;
+	this->inumOfOutputChannels = numOfChannels;
 }
 
 Record::~Record() {
@@ -25,13 +26,13 @@ void Record::process() {
 	if (1 /* If the User has selected record */ ) {
 		SoundHeader header;
 		header.setHighMono();
-		header.setChannels(inumOfChannels);
+		header.setChannels(this->inumOfInputChannels);
 		header.setSrate(int(fsampleRate));
 		SoundFileWrite outsound(filename, header);
 
 		int i, channel;
 		for (i = 0; i<iframeSize; i++) {
-			for (channel = 0; channel < this->inumOfChannels; channel++) {
+			for (channel = 0; channel < this->inumOfInputChannels; channel++) {
 				outsound.writeSampleDouble(this->m_pinBuffer[channel][i]);
 			}
 		}
@@ -43,7 +44,7 @@ void Record::process() {
 
 		SoundHeader header;
 		//header.SoundHeader(filename);
-		SoundFileRead input = new SoundFileRead(filename,0, iframeSize);
+		SoundFileRead* input = new SoundFileRead(filename,0, iframeSize);
 	}
 
 }

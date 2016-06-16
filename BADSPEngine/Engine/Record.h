@@ -21,7 +21,7 @@ class Record : public DSPComponent
 private:
 	virtual void processSubComponent();
 public:
-	Record(float sampleRate, int frameSize, int numOfChannels);
+	Record(float sampleRate, int frameSize, int numOfInputChannels);
 	~Record();
 
 

@@ -139,6 +139,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms\FilterBank.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="FileIO\src\SoundHeader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms\FilterBank.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\Passthrough.h" />
     <ClInclude Include="Engine\DSPComponent.h" />

@@ -17,6 +17,7 @@
     <ClCompile Include="FileIO\src\SoundFileWrite.cpp" />
     <ClCompile Include="FileIO\src\SoundHeader.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
+    <ClCompile Include="Algorithms\FilterBank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -49,6 +50,7 @@
     <ClInclude Include="FileIO\include\SoundFileWrite.h" />
     <ClInclude Include="FileIO\include\SoundHeader.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
+    <ClInclude Include="Algorithms\FilterBank.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileIO\doc\NextFormat\index.html" />
