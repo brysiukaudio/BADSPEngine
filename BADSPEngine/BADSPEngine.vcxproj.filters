@@ -5,14 +5,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
+    <ClCompile Include="Algorithms\FilterBank.cpp" />
+    <ClCompile Include="Algorithms\Passthrough.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\DSPComponent.h" />
-    <ClInclude Include="Algorithms\Passthrough.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
+    <ClInclude Include="Algorithms\FilterBank.h" />
+    <ClInclude Include="Algorithms\Passthrough.h" />
   </ItemGroup>
 </Project>
