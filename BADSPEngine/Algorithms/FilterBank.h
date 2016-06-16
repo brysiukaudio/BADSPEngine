@@ -21,7 +21,7 @@ private:
 
 	float ** filterCoefficients; // matrix of coefficients [filter][coefficients]
 public:
-	FilterBank(float sampleRate, int frameSize, int numOfChannels);
+	FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~FilterBank();
 
 
