@@ -12,10 +12,11 @@ Copyright BrysiukAudio
 #include "Passthrough.h"
 #include "..\Engine\DSPComponent.h"
 
-Passthrough::Passthrough(float sampleRate, int frameSize, int numOfChannels) {
+Passthrough::Passthrough(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels) {
 	this->fsampleRate = sampleRate;
 	this->iframeSize = frameSize;
-	this->inumOfChannels = numOfChannels;
+	this->inumOfInputChannels = numOfInputChannels;
+	this->inumOfOutputChannels = numOfOutputChannels;
 }
 
 Passthrough::~Passthrough() {
@@ -31,7 +32,7 @@ void Passthrough::reset() {
 }
 
 void Passthrough::process() {
-	for (int i = 0; i < inumOfChannels; i++) {
+	for (int i = 0; i < inumOfOutputChannels; i++) {
 		for (int j = 0; j < iframeSize; j++) {
 			this->m_poutBuffer[i][j] = fgain*this->m_pinBuffer[i][j];
 		}

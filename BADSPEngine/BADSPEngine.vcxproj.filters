@@ -6,11 +6,13 @@
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
+    <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\DSPComponent.h" />
     <ClInclude Include="Algorithms\Passthrough.h" />
+    <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
   </ItemGroup>
 </Project>

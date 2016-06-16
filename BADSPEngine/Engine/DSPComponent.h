@@ -16,7 +16,8 @@ protected:
 	float ** m_poutBuffer;
 	float fsampleRate;
 	int	  iframeSize;
-	int	  inumOfChannels;
+	int	  inumOfInputChannels;
+	int	  inumOfOutputChannels;
 	virtual void processSubComponent() = 0;
 public:
 

@@ -18,7 +18,7 @@ class Passthrough : public DSPComponent
 private:
 	virtual void processSubComponent();
 public:
-	Passthrough(float sampleRate, int frameSize, int numOfChannels);
+	Passthrough(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~Passthrough();
 
 
