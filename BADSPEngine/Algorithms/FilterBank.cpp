@@ -35,7 +35,7 @@ void FilterBank::reset() {
 void FilterBank::process() {
 	const int numOfBands = 5;
 	float filter_results[numOfBands][sizeof(m_poutBuffer) / sizeof(m_poutBuffer[0][0])];
-	for (int i = 0; i < inumOfChannels; i++) { // for each channel
+	for (int i = 0; i < inumOfInputChannels; i++) { // for each channel
 		for (int j = 0; j < numOfBands; ++j)
 		{
 			applyFilter(this->m_pinBuffer[i], filter_results[i], filterCoefficients[j]);
