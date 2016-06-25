@@ -1,10 +1,11 @@
 #include "FourtoTwoChannelMixer.h"
 #include "..\Engine\DSPComponent.h"
 
-FourtoTwoChannelMixer::FourtoTwoChannelMixer(float sampleRate, int frameSize, int numOfChannels) {
+FourtoTwoChannelMixer::FourtoTwoChannelMixer(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels){
 	this->fsampleRate = sampleRate;
 	this->iframeSize = frameSize;
-	this->inumOfChannels = numOfChannels;
+	this->inumOfInputChannels = numOfInputChannels;
+	this->inumOfOutputChannels = numOfOutputChannels;
 }
 
 FourtoTwoChannelMixer::~FourtoTwoChannelMixer() {

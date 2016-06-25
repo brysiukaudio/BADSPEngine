@@ -10,16 +10,19 @@ Copyright BrysiukAudio
 
 #pragma once
 
-
 #include "..\Engine\DSPComponent.h"
-class Passthrough : public DSPComponent
+#include "SoundHeader.h"
+#include "SoundFileRead.h"
+#include "SoundFileWrite.h"
+
+class Record : public DSPComponent
 {
 
 private:
 	virtual void processSubComponent();
 public:
-	Passthrough(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
-	~Passthrough();
+	Record(float sampleRate, int frameSize, int numOfInputChannels);
+	~Record();
 
 
 	virtual void init();

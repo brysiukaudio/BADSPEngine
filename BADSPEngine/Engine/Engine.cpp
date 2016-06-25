@@ -9,36 +9,37 @@ Copyright BrysiukAudio
 
 #include "Engine.h"
 
-Engine::Engine(double sampleRate, int frameSize, int numOfChannels)
+Engine::Engine(double sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels)
 {
 	this->sampleRate = sampleRate;
 	this->frameSize = frameSize;
-	this->numOfChannels = numOfChannels;
-	this->inBuffer = new float*[numOfChannels]();
-	this->outBuffer = new float*[numOfChannels]();
-	this->internalBuffer[0] = new float*[numOfChannels]();
-	this->internalBuffer[1] = new float*[numOfChannels]();
+	this->numOfInputChannels = numOfInputChannels;
+	this->numOfOutputChannels = numOfOutputChannels;
+	this->inBuffer = new float*[numOfInputChannels]();
+	this->outBuffer = new float*[numOfOutputChannels]();
 	
-	for (int i = 0; i < this->numOfChannels; i++) {
+	for (int i = 0; i < this->numOfInputChannels; i++) {
 		this->inBuffer[i] = new float[frameSize]();
+	}
+	for (int i = 0; i < this->numOfOutputChannels; i++) {
 		this->outBuffer[i] = new float[frameSize]();
-		this->internalBuffer[0][i] = new float[frameSize]();
-		this->internalBuffer[1][i] = new float[frameSize]();
 	}
 
 }
 
 Engine::~Engine() {
-	for (int i = 0; i < this->numOfChannels; i++) {
+	for (int i = 0; i < this->numOfInputChannels; i++) {
 		delete[] this->inBuffer[i];
-		delete[] this->outBuffer[i];
-		delete[] this->internalBuffer[0][i];
-		delete[] this->internalBuffer[1][i];
 		this->inBuffer[i] = nullptr;
-		this->outBuffer[i] = nullptr;
-		this->internalBuffer[0][i] = nullptr;
-		this->internalBuffer[1][i] = nullptr;
 	}
+	for (int i = 0; i < this->numOfOutputChannels; i++) {
+		delete[] this->outBuffer[i];
+		this->outBuffer[i] = nullptr;
+	}
+	delete[] this->inBuffer;
+	delete[] this->outBuffer;
+	this->inBuffer = nullptr;
+	this->outBuffer = nullptr;
 
 }
 
@@ -46,17 +47,7 @@ void Engine::addComponent(DSPComponent* component) {
 	assert(component != nullptr);
 
 
-	if (componentList.empty()) {
-		component->setBuffers(this->inBuffer, this->outBuffer);
 		componentList.push_back(component);
-	}
-	else {
-		int bufferIt = (componentList.size() - 1) % 2;
-		componentList.back()->setOutputBuffer(this->internalBuffer[bufferIt]);
-		component->setBuffers(this->internalBuffer[bufferIt], this->outBuffer);
-		componentList.push_back(component);
-	}
-	
 
 }
 
@@ -80,8 +71,10 @@ void Engine::processAudio(float ** liveIn, float ** liveOut) {
 	assert(liveIn != nullptr);
 	assert(liveOut != nullptr);
 	
-	for (int i = 0; i < this->numOfChannels; i++) {
+	for (int i = 0; i < this->numOfInputChannels; i++) {
 		memcpy(this->inBuffer[i], liveIn[i], this->frameSize*sizeof(float));
+	}
+	for (int i = 0; i < this->numOfOutputChannels; i++) {
 		memcpy(liveOut[i], this->outBuffer[i], this->frameSize*sizeof(float));
 	}
 	

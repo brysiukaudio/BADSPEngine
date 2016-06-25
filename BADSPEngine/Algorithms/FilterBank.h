@@ -1,9 +1,9 @@
 /*
-Brysiuk Audio Passthrough
-A simple objected that just passes audio from the input buffer to the output buffer
+Mandryk Audio Filter Bank
+Passes the input buffer through a filter bank and outputs multiple buffers for each band
 
-Created 10/10/2015 by Ben Brysiuk
-Copyright BrysiukAudio
+Created 15/06/2016 by Kaegan Mandryk
+Copyright MandrykAudio
 
 
 */
@@ -12,14 +12,14 @@ Copyright BrysiukAudio
 
 
 #include "..\Engine\DSPComponent.h"
-class Passthrough : public DSPComponent
+class FilterBank : public DSPComponent
 {
 
 private:
 	virtual void processSubComponent();
 public:
-	Passthrough(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
-	~Passthrough();
+	FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
+	~FilterBank();
 
 
 	virtual void init();
