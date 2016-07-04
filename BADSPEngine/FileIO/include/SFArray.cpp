@@ -19,7 +19,7 @@
 #ifndef _ARRAY_CPP_INCLUDED
 #define _ARRAY_CPP_INCLUDED
 
-#include "Array.h"
+#include "SFArray.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -31,16 +31,16 @@ using namespace std;
 //
 
 template<class type>
-Array<type>::Array(void) : Collection<type>(4) { }
+SFArray<type>::SFArray(void) : Collection<type>(4) { }
 
 template<class type>
-Array<type>::Array(int arraySize) : Collection<type>(arraySize) { }
+SFArray<type>::SFArray(int arraySize) : Collection<type>(arraySize) { }
 
 template<class type>
-Array<type>::Array(Array<type>& anArray) : Collection<type>(anArray) { }
+SFArray<type>::SFArray(SFArray<type>& anArray) : Collection<type>(anArray) { }
 
 template<class type>
-Array<type>::Array(int arraySize, type *anArray) : 
+SFArray<type>::SFArray(int arraySize, type *anArray) :
    Collection<type>(arraySize, anArray) { }
 
 
@@ -52,7 +52,7 @@ Array<type>::Array(int arraySize, type *anArray) :
 //
 
 template<class type>
-Array<type>::~Array() { }
+SFArray<type>::~SFArray() { }
 
 
 
@@ -63,7 +63,7 @@ Array<type>::~Array() { }
 //
 
 template<class type>
-void Array<type>::setAll(type aValue) {
+void SFArray<type>::setAll(type aValue) {
    for (int i=0; i<this->getSize(); i++) {
       this->array[i] = aValue;
    }
@@ -77,7 +77,7 @@ void Array<type>::setAll(type aValue) {
 //
 
 template<class type>
-type Array<type>::sum(void) {
+type SFArray<type>::sum(void) {
    type theSum = 0;
    for (int i=0; i<this->getSize(); i++) {
       theSum += this->array[i];
@@ -86,7 +86,7 @@ type Array<type>::sum(void) {
 }
 
 template<class type>
-type Array<type>::sum(int loIndex, int hiIndex) {
+type SFArray<type>::sum(int loIndex, int hiIndex) {
    type theSum = 0;
    for (int i=loIndex; i<=hiIndex; i++) {
       theSum += this->array[i];
@@ -102,7 +102,7 @@ type Array<type>::sum(int loIndex, int hiIndex) {
 //
 
 template<class type>
-void Array<type>::zero(int minIndex, int maxIndex) {
+void SFArray<type>::zero(int minIndex, int maxIndex) {
    if (this->size == 0) return;
    if (minIndex == -1) minIndex = 0;
    if (maxIndex == -1) maxIndex = this->size-1;
@@ -127,11 +127,11 @@ void Array<type>::zero(int minIndex, int maxIndex) {
 
 
 template<class type>
-int Array<type>::operator==(const Array<type>& aArray) {
+int SFArray<type>::operator==(const SFArray<type>& aArray) {
    if (this->getSize() != aArray.getSize()) {
       return 0;
    }
-   Array<type>& t = *this;
+   SFArray<type>& t = *this;
    int i;
    for (i=0; i<this->getSize(); i++) {
       if (t[i] != aArray[i]) {
@@ -149,7 +149,7 @@ int Array<type>::operator==(const Array<type>& aArray) {
 //
 
 template<class type>
-Array<type>& Array<type>::operator=(const Array<type>& anArray) {
+SFArray<type>& SFArray<type>::operator=(const SFArray<type>& anArray) {
    if (this->allocSize < anArray.size) {
       if (this->allocSize != 0) {
          delete [] this->array;
@@ -177,7 +177,7 @@ Array<type>& Array<type>::operator=(const Array<type>& anArray) {
 //
 
 template<class type>
-Array<type>& Array<type>::operator+=(const Array<type>& anArray) {
+SFArray<type>& SFArray<type>::operator+=(const SFArray<type>& anArray) {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
@@ -199,22 +199,22 @@ Array<type>& Array<type>::operator+=(const Array<type>& anArray) {
 //
 
 template<class type>
-Array<type> Array<type>::operator+(const Array<type>& anArray) const {
+SFArray<type> SFArray<type>::operator+(const SFArray<type>& anArray) const {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
       exit(1);
    }
 
-   Array<type> bArray(*this);
+   SFArray<type> bArray(*this);
    bArray += anArray;
    return bArray;
 }
 
 
 template<class type>
-Array<type> Array<type>::operator+(type aNumber) const {
-   Array<type> anArray(*this);
+SFArray<type> SFArray<type>::operator+(type aNumber) const {
+	SFArray<type> anArray(*this);
    for (int i=0; i<this->size; i++) {
       anArray[i] += aNumber;
    }
@@ -229,7 +229,7 @@ Array<type> Array<type>::operator+(type aNumber) const {
 //
 
 template<class type>
-Array<type>& Array<type>::operator-=(const Array<type>& anArray) {
+SFArray<type>& SFArray<type>::operator-=(const SFArray<type>& anArray) {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
@@ -251,22 +251,22 @@ Array<type>& Array<type>::operator-=(const Array<type>& anArray) {
 //
 
 template<class type>
-Array<type> Array<type>::operator-(const Array<type>& anArray) const {
+SFArray<type> SFArray<type>::operator-(const SFArray<type>& anArray) const {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
       exit(1);
    }
 
-   Array<type> bArray(*this);
+   SFArray<type> bArray(*this);
    bArray -= anArray;
    return bArray;
 }
 
 
 template<class type>
-Array<type> Array<type>::operator-(void) const {
-   Array<type> anArray(*this);
+SFArray<type> SFArray<type>::operator-(void) const {
+	SFArray<type> anArray(*this);
    for (int i=0; i<this->size; i++) {
       anArray[i] = -anArray[i];
    }
@@ -274,8 +274,8 @@ Array<type> Array<type>::operator-(void) const {
 }
 
 template<class type>
-Array<type> Array<type>::operator-(type aNumber) const {
-   Array<type> anArray(*this);
+SFArray<type> SFArray<type>::operator-(type aNumber) const {
+	SFArray<type> anArray(*this);
    for (int i=0; i<this->size; i++) {
       anArray[i] -= aNumber;
    }
@@ -290,7 +290,7 @@ Array<type> Array<type>::operator-(type aNumber) const {
 //
 
 template<class type>
-Array<type>& Array<type>::operator*=(const Array<type>& anArray) {
+SFArray<type>& SFArray<type>::operator*=(const SFArray<type>& anArray) {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
@@ -312,22 +312,22 @@ Array<type>& Array<type>::operator*=(const Array<type>& anArray) {
 //
 
 template<class type>
-Array<type> Array<type>::operator*(const Array<type>& anArray) const {
+SFArray<type> SFArray<type>::operator*(const SFArray<type>& anArray) const {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
       exit(1);
    }
 
-   Array<type> bArray(*this);
+   SFArray<type> bArray(*this);
    bArray *= anArray;
    return bArray;
 }
 
 
 template<class type>
-Array<type> Array<type>::operator*(type aNumber) const {
-   Array<type> anArray(*this);
+SFArray<type> SFArray<type>::operator*(type aNumber) const {
+	SFArray<type> anArray(*this);
    for (int i=0; i<this->size; i++) {
       anArray[i] *= aNumber;
    }
@@ -342,7 +342,7 @@ Array<type> Array<type>::operator*(type aNumber) const {
 //
 
 template<class type>
-Array<type>& Array<type>::operator/=(const Array<type>& anArray) {
+SFArray<type>& SFArray<type>::operator/=(const SFArray<type>& anArray) {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
@@ -362,14 +362,14 @@ Array<type>& Array<type>::operator/=(const Array<type>& anArray) {
 //
 
 template<class type>
-Array<type> Array<type>::operator/(const Array<type>& anArray) const {
+SFArray<type> SFArray<type>::operator/(const SFArray<type>& anArray) const {
    if (this->size != anArray.size) {
       cerr << "Error: different size arrays " << this->size << " and " 
            << anArray.size << endl;
       exit(1);
    }
 
-   Array<type> bArray(*this);
+   SFArray<type> bArray(*this);
    bArray /= anArray;
    return bArray;
 }
