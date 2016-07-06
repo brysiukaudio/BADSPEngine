@@ -23,7 +23,7 @@ public:
 	virtual void init();
 	virtual void process();
 	virtual void reset();
-
+	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
 	void setGain(float Gain1, float Gain2, float Gain3, float Gain4);

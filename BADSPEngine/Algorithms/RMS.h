@@ -11,9 +11,6 @@ Copyright BrysiukAudio
 #pragma once
 
 #include "..\Engine\DSPComponent.h"
-#include "SoundHeader.h"
-#include "SoundFileRead.h"
-#include "SoundFileWrite.h"
 
 class Record : public DSPComponent
 {
@@ -32,10 +29,5 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
-	void setGain(float gain);
-	float fgain;
-	const char* inputname;
-	SoundFileRead* insound;
-	SoundHeader    header;
 
 };

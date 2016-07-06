@@ -29,7 +29,9 @@ void FourtoTwoChannelMixer::process() {
 		this->m_poutBuffer[1][i] = (fGain1*this->m_pinBuffer[0][i]) + (fGain2*this->m_pinBuffer[1][i]) + (fGain3*this->m_pinBuffer[2][i]) + (fGain4*this->m_pinBuffer[3][i]);
 			}
 		}
+void FourtoTwoChannelMixer::setBuffers(float **inBuffer, float** outBuffer) {
 
+}
 
 void FourtoTwoChannelMixer::setInputBuffer(float ** inBuffer) {
 	this->m_pinBuffer = inBuffer;

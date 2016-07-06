@@ -17,7 +17,7 @@
 #ifndef _OPTIONS_H_INCLUDED
 #define _OPTIONS_H_INCLUDED
 
-#include "Array.h"
+#include "SFArray.h"
 
 class option_list;
 class option_register;
@@ -73,9 +73,9 @@ class Options {
       char**                   gargv;
       char*                    commandString;
       char                     optionFlag;
-      Array<char*>             argument;
-      Array<option_register*>  optionRegister;
-      Array<option_list*>      optionList;
+	  SFArray<char*>             argument;
+	  SFArray<option_register*>  optionRegister;
+	  SFArray<option_list*>      optionList;
       int                      processedQ;
       int                      sortedQ;
       int                      suppressQ;       // prevent the --options option

@@ -12,7 +12,7 @@
 #define _SOUNDFILEREAD_H_INCLUDED
 
 #include "SoundHeader.h"
-#include "Array.h"
+#include "SFArray.h"
 
 #ifndef OLDCPP
    #include <iostream>
@@ -55,7 +55,7 @@ class SoundFileRead : public SoundHeader {
       FileIO        sndfile;                 // soundfile input stream
       char         *filename;                // name of the soundfile
       int           endianType;              // how soundfile data is stored
-      Array<double> current;                 // output samples, by channel
+      SFArray<double> current;                 // output samples, by channel
  
       long          curIndex;                // current sample number
       long          begIndex;                // first sample number

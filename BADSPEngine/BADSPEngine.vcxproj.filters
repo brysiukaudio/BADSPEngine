@@ -7,7 +7,6 @@
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Engine\Record.cpp" />
-    <ClCompile Include="FileIO\include\Array.cpp" />
     <ClCompile Include="FileIO\include\Collection.cpp" />
     <ClCompile Include="FileIO\src\FileIO.cpp" />
     <ClCompile Include="FileIO\src\Options.cpp" />
@@ -18,6 +17,7 @@
     <ClCompile Include="FileIO\src\SoundHeader.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\FilterBank.cpp" />
+    <ClCompile Include="FileIO\include\SFArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -38,7 +38,6 @@
     <ClInclude Include="FileIO\doc\NextFormat\sounderror.h" />
     <ClInclude Include="FileIO\doc\NextFormat\soundstruct.h" />
     <ClInclude Include="FileIO\doc\NextFormat\utilsound.h" />
-    <ClInclude Include="FileIO\include\Array.h" />
     <ClInclude Include="FileIO\include\Collection.h" />
     <ClInclude Include="FileIO\include\FileIO.h" />
     <ClInclude Include="FileIO\include\Options.h" />
@@ -51,6 +50,7 @@
     <ClInclude Include="FileIO\include\SoundHeader.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\FilterBank.h" />
+    <ClInclude Include="FileIO\include\SFArray.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileIO\doc\NextFormat\index.html" />

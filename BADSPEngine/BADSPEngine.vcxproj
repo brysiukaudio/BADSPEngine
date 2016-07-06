@@ -76,7 +76,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;OTHEREND=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)\FileIO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -144,7 +144,7 @@
     <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\Record.cpp" />
-    <ClCompile Include="FileIO\include\Array.cpp" />
+    <ClCompile Include="FileIO\include\SFArray.cpp" />
     <ClCompile Include="FileIO\include\Collection.cpp" />
     <ClCompile Include="FileIO\src\FileIO.cpp" />
     <ClCompile Include="FileIO\src\Options.cpp" />
@@ -175,7 +175,7 @@
     <ClInclude Include="FileIO\doc\NextFormat\sounderror.h" />
     <ClInclude Include="FileIO\doc\NextFormat\soundstruct.h" />
     <ClInclude Include="FileIO\doc\NextFormat\utilsound.h" />
-    <ClInclude Include="FileIO\include\Array.h" />
+    <ClInclude Include="FileIO\include\SFArray.h" />
     <ClInclude Include="FileIO\include\Collection.h" />
     <ClInclude Include="FileIO\include\FileIO.h" />
     <ClInclude Include="FileIO\include\Options.h" />
