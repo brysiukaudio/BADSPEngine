@@ -17,9 +17,10 @@ class FilterBank : public DSPComponent
 
 private:
 	virtual void processSubComponent();
-	void applyFilter(float * inBuffer, float* outBuffer, float * filterCoefficients);
+	void applyFilter(float * inBuffer, float* outBuffer);
 
-	float ** filterCoefficients; // matrix of coefficients [filter][coefficients]
+	const int cutoffFreq[3] = { 250, 1000, 6300 };
+	float  filterCoefficients[3][2][3]; // matrix of coefficients [filter][num/denom][coefficients]
 public:
 	FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~FilterBank();
