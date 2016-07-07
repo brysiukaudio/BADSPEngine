@@ -27,7 +27,7 @@ void RMS::reset() {
 void RMS::process() {
 	/* Xrms(n) = (1 - TAV)*Xrms(n-1) + x(n)^2 */
 	int i, iBuffer;
-	for (numBuffers = 0; iBuffer < inumOfInputChannels; numBuffers++) {
+	for (iBuffer = 0; iBuffer < inumOfInputChannels; iBuffer++) {
 		for (i = 0; i < iframeSize; i++) {
 			if (i == 0) {
 				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*prevRMS[iBuffer] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
