@@ -8,8 +8,8 @@
     <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\FilterBank.cpp" />
-    <ClCompile Include="FileIO\include\SFArray.cpp" />
     <ClCompile Include="Algorithms\RMS.cpp" />
+    <ClCompile Include="Algorithms\Analyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -18,7 +18,8 @@
     <ClInclude Include="Algorithms\Passthrough.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\FilterBank.h" />
-    <ClInclude Include="FileIO\include\SFArray.h" />
     <ClInclude Include="Algorithms\RMS.h" />
+    <ClInclude Include="Engine\AutoMixerMath.h" />
+    <ClInclude Include="Algorithms\Analyzer.h" />
   </ItemGroup>
 </Project>

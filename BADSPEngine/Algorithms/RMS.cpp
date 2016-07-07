@@ -33,7 +33,7 @@ void RMS::process() {
 				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*prevRMS[iBuffer] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
 			} /*End if*/
 			else {
-				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*prevRMS[iBuffer] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
+				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*m_poutBuffer[iBuffer][i] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
 			} /*End else*/
 			prevRMS[iBuffer] = this->m_poutBuffer[iBuffer][iframeSize - 1];
 		} /*End for*/

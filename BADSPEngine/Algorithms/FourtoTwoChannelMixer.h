@@ -27,9 +27,9 @@ public:
 	virtual void setBuffers(float** inBuffer, float** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
-	void setGain(float Gain1, float Gain2, float Gain3, float Gain4);
-	float fGain1;
-	float fGain2;
-	float fGain3;
-	float fGain4;
+	void setGain(float* Gain1, float* Gain2, float* Gain3, float* Gain4);
+	float* fGain1;
+	float* fGain2;
+	float* fGain3;
+	float* fGain4;
 };
