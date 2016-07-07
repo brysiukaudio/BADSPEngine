@@ -30,6 +30,10 @@ void FourtoTwoChannelMixer::process() {
 			}
 		}
 
+void FourtoTwoChannelMixer::setBuffers(float** inBuffer, float** outBuffer) {
+	this->setInputBuffer(inBuffer);
+	this->setOutputBuffer(outBuffer);
+}
 
 void FourtoTwoChannelMixer::setInputBuffer(float ** inBuffer) {
 	this->m_pinBuffer = inBuffer;
