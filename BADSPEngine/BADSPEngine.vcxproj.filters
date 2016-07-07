@@ -9,6 +9,7 @@
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\FilterBank.cpp" />
     <ClCompile Include="FileIO\include\SFArray.cpp" />
+    <ClCompile Include="Algorithms\RMS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -18,5 +19,6 @@
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\FilterBank.h" />
     <ClInclude Include="FileIO\include\SFArray.h" />
+    <ClInclude Include="Algorithms\RMS.h" />
   </ItemGroup>
 </Project>
