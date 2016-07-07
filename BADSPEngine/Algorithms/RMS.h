@@ -11,16 +11,16 @@ Copyright BrysiukAudio
 #pragma once
 
 #include "..\Engine\DSPComponent.h"
+#define TAV (float)0.5
 
-class Record : public DSPComponent
+class RMS : public DSPComponent
 {
 
 private:
 	virtual void processSubComponent();
 public:
-	Record(float sampleRate, int frameSize, int numOfInputChannels);
-	~Record();
-
+	RMS(float sampleRate, int frameSize, int numOfInputChannels);
+	~RMS();
 
 	virtual void init();
 	virtual void process();
@@ -29,5 +29,5 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
-
+	float *prevRMS;
 };
