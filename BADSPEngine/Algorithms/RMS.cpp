@@ -6,6 +6,7 @@ RMS::RMS(float sampleRate, int frameSize, int numOfInputChannels) {
 	this->iframeSize = frameSize;
 	this->inumOfInputChannels = numOfInputChannels;
 	prevRMS = new float[numOfInputChannels]();
+	numFrames = 0;
 }
 
 RMS::~RMS() {
@@ -25,20 +26,26 @@ void RMS::reset() {
 }
 
 void RMS::process() {
-	/* Xrms(n) = (1 - TAV)*Xrms(n-1) + x(n)^2 */
 	int i, iBuffer;
+	float temp = 0;
 	for (iBuffer = 0; iBuffer < inumOfInputChannels; iBuffer++) {
 		for (i = 0; i < iframeSize; i++) {
-			if (i == 0) {
-				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*prevRMS[iBuffer] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
-			} /*End if*/
-			else {
-				this->m_poutBuffer[iBuffer][i] = (1 - TAV)*prevRMS[iBuffer] + TAV*(this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]);
-			} /*End else*/
-			prevRMS[iBuffer] = this->m_poutBuffer[iBuffer][iframeSize - 1];
+				temp = (this->m_pinBuffer[iBuffer][i] * this->m_pinBuffer[iBuffer][i]) + temp;
 		} /*End for*/
+		prevRMS[iBuffer] = prevRMS[iBuffer] + temp/iframeSize;
+		temp = 0;
 	} /*End for*/
+	numFrames++;
 }
+
+void RMS::getRMS(float* pfRMSValues_) {
+	int i;
+	for (i = 0; i < inumOfInputChannels; i++) {
+		pfRMSValues_[i] = prevRMS[i] / numFrames;
+	}
+
+}
+
 void RMS::setBuffers(float **inBuffer, float** outBuffer) {
 
 }

@@ -11,7 +11,6 @@ Copyright BrysiukAudio
 #pragma once
 
 #include "..\Engine\DSPComponent.h"
-#define TAV (float)0.5
 
 class RMS : public DSPComponent
 {
@@ -29,5 +28,7 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
+	void getRMS(float* pfRMSValues_);
 	float *prevRMS;
+	int numFrames;
 };
