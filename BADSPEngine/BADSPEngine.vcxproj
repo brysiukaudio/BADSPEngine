@@ -149,6 +149,7 @@
     <ClCompile Include="Algorithms\RMS.cpp" />
     <ClCompile Include="Algorithms\Analyzer.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Algorithms\Selector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms\Analyzer.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Engine\DSPComponent.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\EngineDefinitions.h" />
+    <ClInclude Include="Algorithms\Selector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
