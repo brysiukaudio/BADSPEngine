@@ -143,6 +143,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms\ClipDetection.cpp" />
     <ClCompile Include="Algorithms\FilterBank.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms\Analyzer.h" />
+    <ClInclude Include="Algorithms\ClipDetection.h" />
     <ClInclude Include="Algorithms\FilterBank.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\Passthrough.h" />

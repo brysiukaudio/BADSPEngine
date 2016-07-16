@@ -11,6 +11,7 @@
     <ClCompile Include="Algorithms\RMS.cpp" />
     <ClCompile Include="Algorithms\Analyzer.cpp" />
     <ClCompile Include="Algorithms\Selector.cpp" />
+    <ClCompile Include="Algorithms\ClipDetection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -23,5 +24,6 @@
     <ClInclude Include="Engine\AutoMixerMath.h" />
     <ClInclude Include="Algorithms\Analyzer.h" />
     <ClInclude Include="Algorithms\Selector.h" />
+    <ClInclude Include="Algorithms\ClipDetection.h" />
   </ItemGroup>
 </Project>
