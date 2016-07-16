@@ -11,6 +11,7 @@ Copyright BrysiukAudio
 #pragma once
 
 #include "..\Engine\DSPComponent.h"
+#define THRESHOLD (float)0.000001
 
 class RMS : public DSPComponent
 {
@@ -30,5 +31,5 @@ public:
 	virtual void setOutputBuffer(float ** outBuffer);
 	void getRMS(float* pfRMSValues_);
 	float *prevRMS;
-	int numFrames;
+	int* numFrames;
 };
