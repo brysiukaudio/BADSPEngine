@@ -29,7 +29,9 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
+	void setCalibrate(bool calibrate);
 	void getRMS(float* pfRMSValues_);
 	float *prevRMS;
 	int* numFrames;
+	bool calibrate = false;
 };

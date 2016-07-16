@@ -20,29 +20,40 @@ class Analyzer : public DSPComponent
 private:
 	enum rmsValueTypes
 	{
-		fullRange,
-		lowFreq,
-		lowMidFreq,
-		highMidFreq,
-		highFreq,
+		vFullRange,
+		gFullRange,
+		bFullRange,
+		dFullRange,
+		vLowFreq,
+		vLowMidFreq,
+		vHighMidFreq,
+		vHighFreq,
+		gLowFreq,
+		gLowMidFreq,
+		gHighMidFreq,
+		gHighFreq,
+		bLowFreq,
+		bLowMidFreq,
+		bHighMidFreq,
+		bHighFreq,
+		dLowFreq,
+		dLowMidFreq,
+		dHighMidFreq,
+		dHighFreq,
 
 		numofTypes,
 	};
 	virtual void processSubComponent();
-	FilterBank* filterBlock = nullptr;
-	RMS* rmsBlock = nullptr;
+
 	bool m_bRecordComplete = false;
 	
 	//All the RMS values for each track the order being F
-	float m_pfVocalRMSValues[numofTypes];
-	float m_pfGuitarRMSValues[numofTypes];
-	float m_pfBassRMSValues[numofTypes];
-	float m_pfDrumsRMSValues[numofTypes];
+	float m_pfRMSValues[numofTypes];
 
 	//Modifier Values as Obtained from the Research
-	const float m_fBassModifier = 0.5;
-	const float m_fGuitarModifier = 0.5;
-	const float m_fDrumsModifier = 0.5;
+	const float m_fBassModifier = 2.2726;
+	const float m_fGuitarModifier = 0.6875;
+	const float m_fDrumsModifier = 0.2135;
 
 	float* m_pfVocalGain;
 	float* m_pfBassGain;
@@ -50,10 +61,13 @@ private:
 	float* m_pfDrumGain;
 
 	float* m_InternalBuffers[16];
+	float* m_CombinedBuffers[20];
 public:
 	Analyzer(float sampleRate, int frameSize, int numOfChannels);
 	~Analyzer();
 
+	FilterBank* filterBlock = nullptr;
+	RMS* rmsBlock = nullptr;
 
 	virtual void init();
 	virtual void process();
@@ -62,6 +76,7 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
+	void setOutputBuffer();
 	void setRecordComplete(bool recordComplete);
 	void setGainOutputs(float* vocals, float* guitar, float* bass, float* drums);
 };

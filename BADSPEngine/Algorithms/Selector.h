@@ -17,6 +17,7 @@ public:
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setInputBuffer(float ** inBufferOne, float** inBufferTwo);
 	virtual void setOutputBuffer(float ** outBuffer);
+	virtual void processSubComponent();
 	void setIsPlaying(bool isPlaying);
 
 private:

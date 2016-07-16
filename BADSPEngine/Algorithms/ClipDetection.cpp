@@ -55,3 +55,7 @@ void ClipDetection::process() {
 	}
 	
 }
+
+void ClipDetection::processSubComponent() {
+
+}

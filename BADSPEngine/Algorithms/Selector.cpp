@@ -66,3 +66,7 @@ void Selector::process() {
 void Selector::setIsPlaying(bool isPlaying) {
 	this->m_bIsPlaying = isPlaying;
 }
+
+void Selector::processSubComponent() {
+
+}

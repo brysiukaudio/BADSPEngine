@@ -15,10 +15,11 @@ public:
 	virtual void setBuffers(float** inBuffer, float** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
+	virtual void processSubComponent();
 
 private:
 
-	float gain = 0;
+	float gain = 1.0;
 	float max = 0;
 
 };

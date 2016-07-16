@@ -19,7 +19,7 @@ Analyzer::Analyzer(float sampleRate, int frameSize, int numOfChannels) {
 	this->inumOfInputChannels = numOfChannels;
 	this->inumOfOutputChannels = numOfChannels;
 	this->filterBlock = new FilterBank(sampleRate, frameSize, numOfChannels, numOfChannels);
-	this->rmsBlock = new RMS(sampleRate, frameSize, numOfChannels);
+	this->rmsBlock = new RMS(sampleRate, frameSize, numOfChannels*5);
 	for (int i = 0; i < numOfChannels * 4; i++) {
 		m_InternalBuffers[i] = new float[frameSize];
 	}
@@ -52,11 +52,12 @@ void Analyzer::process() {
 	processSubComponent();
 	if (m_bRecordComplete) {
 		//Get RMS Values
+		rmsBlock->getRMS(this->m_pfRMSValues);
 
 		//Calculate relative values
-		bassvVocals = m_pfBassRMSValues[fullRange] / m_pfVocalRMSValues[fullRange];
-		guitarvVocals = m_pfGuitarRMSValues[fullRange] / m_pfVocalRMSValues[fullRange];
-		drumsvVocals = m_pfDrumsRMSValues[fullRange] / m_pfVocalRMSValues[fullRange];
+		bassvVocals = m_pfRMSValues[bFullRange] / m_pfRMSValues[vFullRange];
+		guitarvVocals = m_pfRMSValues[gFullRange] / m_pfRMSValues[vFullRange];
+		drumsvVocals = m_pfRMSValues[dFullRange] / m_pfRMSValues[vFullRange];
 		
 		//Set Gain based on relative values and the modifier
 
@@ -85,11 +86,24 @@ void Analyzer::setBuffers(float ** inBuffer, float ** outBuffer) {
 void Analyzer::setInputBuffer(float ** inBuffer) {
 	this->m_pinBuffer = inBuffer;
 	this->filterBlock->setInputBuffer(inBuffer);
-	//this->rmsBlock->setInputBuffer(inBuffer,m_InternalBuffers);
+	for (int i = 0; i < inumOfInputChannels*5; i++) {
+		if (i < 4) {
+			this->m_CombinedBuffers[i] = this->m_pinBuffer[i];
+		}
+		else {
+			this->m_CombinedBuffers[i] = m_InternalBuffers[i - 4];
+		}
+		
+	}
+	this->rmsBlock->setInputBuffer(this->m_CombinedBuffers);
 }
 
 void Analyzer::setOutputBuffer(float ** outBuffer) {
 	this->m_poutBuffer = outBuffer;
+	this->setOutputBuffer();
+	
+}
+void Analyzer::setOutputBuffer() {
 	this->filterBlock->setOutputBuffer(m_InternalBuffers);
 }
 
