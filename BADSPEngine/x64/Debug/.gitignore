@@ -1,1 +1,11 @@
 /BADSPEngine.idb
+/Analyzer.obj
+/BADSPEngine.log
+/BADSPEngine.pdb
+/ClipDetection.obj
+/Engine.obj
+/FilterBank.obj
+/FourtoTwoChannelMixer.obj
+/Passthrough.obj
+/RMS.obj
+/Selector.obj

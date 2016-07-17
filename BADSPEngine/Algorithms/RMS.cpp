@@ -32,7 +32,7 @@ void RMS::process() {
 
 			if (temp / iframeSize > THRESHOLD) {
 				prevRMS[iBuffer] = prevRMS[iBuffer] + temp / iframeSize;
-				numFrames[i]++;
+				numFrames[iBuffer] = numFrames[iBuffer] + 1;
 			} /*End if*/
 			temp = 0;
 		} /*End for*/

@@ -21,7 +21,7 @@ Analyzer::Analyzer(float sampleRate, int frameSize, int numOfChannels) {
 	this->filterBlock = new FilterBank(sampleRate, frameSize, numOfChannels, numOfChannels);
 	this->rmsBlock = new RMS(sampleRate, frameSize, numOfChannels*5);
 	for (int i = 0; i < numOfChannels * 4; i++) {
-		m_InternalBuffers[i] = new float[frameSize];
+		m_InternalBuffers[i] = new float[frameSize]();
 	}
 
 }
@@ -109,7 +109,7 @@ void Analyzer::setOutputBuffer() {
 
 void Analyzer::processSubComponent() {
 	this->rmsBlock->process();
-	this->filterBlock->process();
+	//this->filterBlock->process();
 }
 
 void Analyzer::setRecordComplete(bool recordComplete) {
