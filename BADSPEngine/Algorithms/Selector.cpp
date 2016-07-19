@@ -31,7 +31,7 @@ void Selector::setInputBuffer(float ** inBuffer) {
 }
 void Selector::setInputBuffer(float ** inBufferOne, float** inBufferTwo) {
 	this->m_pinBuffer = inBufferOne;
-	this->m_poutBuffer = inBufferTwo;
+	this->m_pInBufferTwo = inBufferTwo;
 }
 void Selector::setOutputBuffer(float ** outBuffer) {
 	this->m_poutBuffer = outBuffer;
