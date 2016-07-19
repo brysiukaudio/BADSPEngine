@@ -10,6 +10,7 @@ Copyright BrysiukAudio
 
 #include <cstdlib>
 #include <cstdio>
+#include <cmath>
 #include "Analyzer.h"
 #include "..\Engine\DSPComponent.h"
 
@@ -61,9 +62,9 @@ void Analyzer::process() {
 		
 		//Set Gain based on relative values and the modifier
 
-		*m_pfBassGain = m_fBassModifier / bassvVocals;
-		*m_pfDrumGain = m_fDrumsModifier / drumsvVocals;
-		*m_pfGuitarGain = m_fGuitarModifier / guitarvVocals;
+		*m_pfBassGain = sqrt(m_fBassModifier / bassvVocals);
+		*m_pfDrumGain = sqrt(m_fDrumsModifier / drumsvVocals);
+		*m_pfGuitarGain = sqrt(m_fGuitarModifier / guitarvVocals);
 
 		//Get Filter Values
 
