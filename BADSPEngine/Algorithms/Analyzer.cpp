@@ -66,11 +66,9 @@ void Analyzer::process() {
 		*m_pfDrumGain = sqrt(m_fDrumsModifier / drumsvVocals);
 		*m_pfGuitarGain = sqrt(m_fGuitarModifier / guitarvVocals);
 
-		//Get Filter Values
-
 		//Calulate Relative Values
-
 		//Modify Gain based on relative values and modifiers
+		//More Research Needed
 
 		m_bRecordComplete = false;
 	}
@@ -110,7 +108,7 @@ void Analyzer::setOutputBuffer() {
 
 void Analyzer::processSubComponent() {
 	this->rmsBlock->process();
-	//this->filterBlock->process();
+	this->filterBlock->process();
 }
 
 void Analyzer::setRecordComplete(bool recordComplete) {

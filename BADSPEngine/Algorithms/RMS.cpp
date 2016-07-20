@@ -43,6 +43,8 @@ void RMS::getRMS(float* pfRMSValues_) {
 	int i;
 	for (i = 0; i < inumOfInputChannels; i++) {
 		pfRMSValues_[i] = prevRMS[i] / (float)numFrames[i];
+		prevRMS[i] = 0;
+		numFrames[i] = 0;
 	}
 
 }
@@ -70,3 +72,4 @@ void RMS::processSubComponent() {
 void RMS::setCalibrate(bool calibrate) {
 	this->calibrate = calibrate;
 }
+

@@ -51,9 +51,9 @@ private:
 	float m_pfRMSValues[numofTypes];
 
 	//Modifier Values as Obtained from the Research
-	const float m_fBassModifier = 2.285;
-	const float m_fGuitarModifier = 0.6889;
-	const float m_fDrumsModifier = 0.2135;
+	const float m_fBassModifier = 2.085;
+	const float m_fGuitarModifier = 0.6789;
+	const float m_fDrumsModifier = 0.3135;
 
 	float* m_pfVocalGain;
 	float* m_pfBassGain;
