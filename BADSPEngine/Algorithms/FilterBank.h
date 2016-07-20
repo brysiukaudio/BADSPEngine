@@ -17,10 +17,21 @@ class FilterBank : public DSPComponent
 
 private:
 	virtual void processSubComponent();
-	void applyFilter(float * inBuffer, float* outBuffer);
 
+	const int numOfBands = 4;
+	const int numOfFilters = 3;
 	const int cutoffFreq[3] = { 250, 1000, 6300 };
 	float  filterCoefficients[3][2][3]; // matrix of coefficients [filter][num/denom][coefficients]
+
+	float firstInput[4];
+	float secondInput[4];
+	float firstOutput[12];
+	float secondOutput[12];
+
+	float*** filterResults;
+
+	bool calibrationMode;
+
 public:
 	FilterBank(float sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
 	~FilterBank();
@@ -33,6 +44,6 @@ public:
 	virtual void setBuffers(float ** inBuffer, float ** outBuffer);
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
-	void setGain(float gain);
-	float fgain;
+
+	void setCalibrationMode(bool mode);
 };
