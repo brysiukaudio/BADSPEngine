@@ -28,8 +28,21 @@ public:
 	virtual void setInputBuffer(float ** inBuffer);
 	virtual void setOutputBuffer(float ** outBuffer);
 	void setGain(float* Gain1, float* Gain2, float* Gain3, float* Gain4);
+
+	void setVocalAdjust(float vocalAdjust);
+	void setGuitarAdjust(float guitarAdjust);
+	void setBassAdjust(float bassAdjust);
+	void setDrumAdjust(float drumAdjust);
+
+
 	float* fGain1;
 	float* fGain2;
 	float* fGain3;
 	float* fGain4;
+
+	float vocalBoost = 1;
+	float guitarBoost = 1;
+	float bassBoost = 1;
+	float drumsBoost = 1;
+
 };
