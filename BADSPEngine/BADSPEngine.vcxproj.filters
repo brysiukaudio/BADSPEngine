@@ -12,7 +12,6 @@
     <ClCompile Include="Algorithms\Analyzer.cpp" />
     <ClCompile Include="Algorithms\Selector.cpp" />
     <ClCompile Include="Algorithms\ClipDetection.cpp" />
-    <ClCompile Include="Engine\CircularBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
