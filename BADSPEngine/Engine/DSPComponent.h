@@ -12,8 +12,8 @@ Copyright BrysiukAudio
 #include "EngineDefinitions.h"
 class DSPComponent {
 protected:
-	float ** m_pinBuffer;
-	float ** m_poutBuffer;
+	double ** m_pinBuffer;
+	double ** m_poutBuffer;
 	float fsampleRate;
 	int	  iframeSize;
 	int	  inumOfInputChannels;
