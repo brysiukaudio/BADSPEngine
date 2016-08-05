@@ -9,3 +9,4 @@
 /Passthrough.obj
 /RMS.obj
 /Selector.obj
+*.Build.CppClean.log

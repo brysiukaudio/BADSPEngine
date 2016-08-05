@@ -12,6 +12,7 @@
     <ClCompile Include="Algorithms\Analyzer.cpp" />
     <ClCompile Include="Algorithms\Selector.cpp" />
     <ClCompile Include="Algorithms\ClipDetection.cpp" />
+    <ClCompile Include="Algorithms\TwotoOneNodeMixer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -26,5 +27,6 @@
     <ClInclude Include="Algorithms\Selector.h" />
     <ClInclude Include="Algorithms\ClipDetection.h" />
     <ClInclude Include="Engine\CircularBuffer.h" />
+    <ClInclude Include="Algorithms\TwotoOneNodeMixer.h" />
   </ItemGroup>
 </Project>

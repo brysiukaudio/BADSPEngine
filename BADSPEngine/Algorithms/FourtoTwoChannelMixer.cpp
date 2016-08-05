@@ -13,8 +13,6 @@ FourtoTwoChannelMixer::~FourtoTwoChannelMixer() {
 
 }
 
-void process(){
-}
 
 void FourtoTwoChannelMixer::init() {
 
