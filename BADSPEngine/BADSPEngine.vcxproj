@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,32 +22,32 @@
     <ProjectGuid>{969FF8D1-3F91-4F9D-AB01-CFEFBB897027}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>BADSPEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -76,7 +76,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;OTHEREND=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;OTHEREND=1;_SCL_SECURE_NO_WARNINGS;M_E=2.71828182845904523536;M_LOG2E=1.44269504088896340736;M_LOG10E=0.434294481903251827651;M_LN2=0.693147180559945309417;M_LN10=2.30258509299404568402;M_PI=3.14159265358979323846;M_PI_2=1.57079632679489661923;M_PI_4=0.785398163397448309616;M_1_PI=0.318309886183790671538;M_2_PI=0.636619772367581343076;M_1_SQRTPI=0.564189583547756286948;M_2_SQRTPI=1.12837916709551257390;M_SQRT2=1.41421356237309504880;M_SQRT_2=0.707106781186547524401;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)\FileIO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -145,29 +145,36 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms\ClipDetection.cpp" />
+    <ClCompile Include="Algorithms\Convolver.cpp" />
     <ClCompile Include="Algorithms\FilterBank.cpp" />
     <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
+    <ClCompile Include="Algorithms\Impulse.cpp" />
     <ClCompile Include="Algorithms\Passthrough.cpp" />
     <ClCompile Include="Algorithms\RMS.cpp" />
     <ClCompile Include="Algorithms\Analyzer.cpp" />
     <ClCompile Include="Algorithms\TwotoOneNodeMixer.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Algorithms\Selector.cpp" />
+    <ClCompile Include="Third Party\pffft\pffft.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms\Analyzer.h" />
     <ClInclude Include="Algorithms\ClipDetection.h" />
+    <ClInclude Include="Algorithms\Convolver.h" />
     <ClInclude Include="Algorithms\FilterBank.h" />
     <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
+    <ClInclude Include="Algorithms\Impulse.h" />
     <ClInclude Include="Algorithms\Passthrough.h" />
     <ClInclude Include="Algorithms\RMS.h" />
     <ClInclude Include="Algorithms\TwotoOneNodeMixer.h" />
     <ClInclude Include="Engine\AutoMixerMath.h" />
     <ClInclude Include="Engine\CircularBuffer.h" />
+    <ClInclude Include="Engine\CircularBuffer16ByteAligned.h" />
     <ClInclude Include="Engine\DSPComponent.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Algorithms\Selector.h" />
+    <ClInclude Include="Third Party\pffft\pffft.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

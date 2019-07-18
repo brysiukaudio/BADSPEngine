@@ -13,6 +13,9 @@
     <ClCompile Include="Algorithms\Selector.cpp" />
     <ClCompile Include="Algorithms\ClipDetection.cpp" />
     <ClCompile Include="Algorithms\TwotoOneNodeMixer.cpp" />
+    <ClCompile Include="Algorithms\Impulse.cpp" />
+    <ClCompile Include="Algorithms\Convolver.cpp" />
+    <ClCompile Include="Third Party\pffft\pffft.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -28,5 +31,9 @@
     <ClInclude Include="Algorithms\ClipDetection.h" />
     <ClInclude Include="Engine\CircularBuffer.h" />
     <ClInclude Include="Algorithms\TwotoOneNodeMixer.h" />
+    <ClInclude Include="Algorithms\Impulse.h" />
+    <ClInclude Include="Algorithms\Convolver.h" />
+    <ClInclude Include="Engine\CircularBuffer16ByteAligned.h" />
+    <ClInclude Include="Third Party\pffft\pffft.h" />
   </ItemGroup>
 </Project>
