@@ -11,7 +11,7 @@ Copyright MandrykAudio
 #pragma once
 
 
-#include "..\Engine\DSPComponent.h"
+#include "Engine\DSPComponent.h"
 class FilterBank : public DSPComponent
 {
 

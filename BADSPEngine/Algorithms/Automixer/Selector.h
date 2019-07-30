@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Engine\DSPComponent.h"
+#include "Engine\DSPComponent.h"
 class Selector : public DSPComponent
 {
 public:

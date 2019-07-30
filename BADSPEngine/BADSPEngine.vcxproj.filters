@@ -5,35 +5,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Algorithms\Passthrough.cpp" />
-    <ClCompile Include="Algorithms\FourtoTwoChannelMixer.cpp" />
-    <ClCompile Include="Algorithms\FilterBank.cpp" />
-    <ClCompile Include="Algorithms\RMS.cpp" />
-    <ClCompile Include="Algorithms\Analyzer.cpp" />
-    <ClCompile Include="Algorithms\Selector.cpp" />
-    <ClCompile Include="Algorithms\ClipDetection.cpp" />
-    <ClCompile Include="Algorithms\TwotoOneNodeMixer.cpp" />
-    <ClCompile Include="Algorithms\Impulse.cpp" />
-    <ClCompile Include="Algorithms\Convolver.cpp" />
     <ClCompile Include="Third Party\pffft\pffft.c" />
+    <ClCompile Include="Algorithms\Generic\ClipDetection.cpp" />
+    <ClCompile Include="Algorithms\Generic\FourtoTwoChannelMixer.cpp" />
+    <ClCompile Include="Algorithms\Generic\Passthrough.cpp" />
+    <ClCompile Include="Algorithms\Generic\TwotoOneNodeMixer.cpp" />
+    <ClCompile Include="Algorithms\Convolver\Convolver.cpp" />
+    <ClCompile Include="Algorithms\Convolver\Impulse.cpp" />
+    <ClCompile Include="Algorithms\Automixer\Analyzer.cpp" />
+    <ClCompile Include="Algorithms\Automixer\FilterBank.cpp" />
+    <ClCompile Include="Algorithms\Automixer\RMS.cpp" />
+    <ClCompile Include="Algorithms\Automixer\Selector.cpp" />
+    <ClCompile Include="Algorithms\Generic\FilterDesign.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\DSPComponent.h" />
-    <ClInclude Include="Algorithms\Passthrough.h" />
-    <ClInclude Include="Algorithms\FourtoTwoChannelMixer.h" />
-    <ClInclude Include="Algorithms\FilterBank.h" />
-    <ClInclude Include="Algorithms\RMS.h" />
     <ClInclude Include="Engine\AutoMixerMath.h" />
-    <ClInclude Include="Algorithms\Analyzer.h" />
-    <ClInclude Include="Algorithms\Selector.h" />
-    <ClInclude Include="Algorithms\ClipDetection.h" />
     <ClInclude Include="Engine\CircularBuffer.h" />
-    <ClInclude Include="Algorithms\TwotoOneNodeMixer.h" />
-    <ClInclude Include="Algorithms\Impulse.h" />
-    <ClInclude Include="Algorithms\Convolver.h" />
     <ClInclude Include="Engine\CircularBuffer16ByteAligned.h" />
     <ClInclude Include="Third Party\pffft\pffft.h" />
+    <ClInclude Include="Algorithms\Generic\ClipDetection.h" />
+    <ClInclude Include="Algorithms\Generic\FourtoTwoChannelMixer.h" />
+    <ClInclude Include="Algorithms\Generic\Passthrough.h" />
+    <ClInclude Include="Algorithms\Generic\TwotoOneNodeMixer.h" />
+    <ClInclude Include="Algorithms\Convolver\Convolver.h" />
+    <ClInclude Include="Algorithms\Convolver\Impulse.h" />
+    <ClInclude Include="Algorithms\Automixer\Analyzer.h" />
+    <ClInclude Include="Algorithms\Automixer\FilterBank.h" />
+    <ClInclude Include="Algorithms\Automixer\RMS.h" />
+    <ClInclude Include="Algorithms\Automixer\Selector.h" />
+    <ClInclude Include="Algorithms\Generic\FilterDesign.h" />
   </ItemGroup>
 </Project>

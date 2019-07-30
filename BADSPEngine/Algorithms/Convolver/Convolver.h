@@ -6,9 +6,9 @@ Created 10/10/2015 by Ben Brysiuk
 Copyright BrysiukAudio
 
 */
-#include "..\Engine\DSPComponent.h";
-#include "..\Engine\CircularBuffer16ByteAligned.h";
-#include "..\Third Party\pffft\pffft.h"
+#include "Engine\DSPComponent.h";
+#include "Engine\CircularBuffer16ByteAligned.h";
+#include "pffft\pffft.h"
 #include <algorithm>
 
 class Convolver : public DSPComponent {

@@ -1,5 +1,5 @@
 #pragma once
-#include <assert.h>
+#include <cassert>
 
 #define NUM_OF_CHANNELS				(2)
 #define DEFUALT_SAMPLE_RATE			(48000)

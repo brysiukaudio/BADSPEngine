@@ -10,7 +10,7 @@ Created 02/06/2015 by Chad Bartlett
 #pragma once
 
 
-#include "..\Engine\DSPComponent.h"
+#include "Engine\DSPComponent.h"
 class TwotoOneNodeMixer : public DSPComponent
 {
 

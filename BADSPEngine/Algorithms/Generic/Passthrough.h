@@ -11,7 +11,7 @@ Copyright BrysiukAudio
 #pragma once
 
 
-#include "..\Engine\DSPComponent.h"
+#include "Engine\DSPComponent.h"
 class Passthrough : public DSPComponent
 {
 

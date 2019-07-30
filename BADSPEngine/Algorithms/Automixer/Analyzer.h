@@ -11,9 +11,9 @@ Copyright BrysiukAudio
 #pragma once
 
 
-#include "..\Engine\DSPComponent.h"
-#include "..\Algorithms\FilterBank.h"
-#include "..\Algorithms\RMS.h"
+#include "Engine\DSPComponent.h"
+#include "FilterBank.h"
+#include "RMS.h"
 class Analyzer : public DSPComponent
 {
 

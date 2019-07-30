@@ -10,9 +10,9 @@ Copyright BrysiukAudio
 #pragma once
 
 //#include "../JuceLibraryCode/JuceHeader.h"
-#include "..\Engine\DSPComponent.h"
-#include "..\Third Party\pffft\pffft.h"
-#include "..\Engine\CircularBuffer16ByteAligned.h"
+#include "Engine\DSPComponent.h"
+#include "pffft\pffft.h"
+#include "Engine\CircularBuffer16ByteAligned.h"
 #include "Convolver.h"
 
 class Impulse : public DSPComponent {
