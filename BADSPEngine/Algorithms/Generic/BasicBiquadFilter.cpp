@@ -39,26 +39,41 @@ void BasicBiquadFilter::init()
 }
 void BasicBiquadFilter::process()
 {
+	
 	float X = 0;
 	float Y = 0;
 	for (int i = 0; i < iframeSize; i++)
 	{
-		X = m_pinBuffer[0][i];
-		Y = states[0][1] + b[0] * X;
-		states[0][1] = states[0][2] - a[0] * Y + b[1] * X;
-		states[0][2] = -1 * a[1] * Y + b[2] * X;
-
-		m_poutBuffer[0][i] = Y;
-
-		if (inumOfInputChannels > 1)
+		if (enabled)
 		{
-			X = m_pinBuffer[1][i];
-			Y = states[1][1] + b[0] * X;
-			states[1][1] = states[1][2] - a[0] * Y + b[1] * X;
-			states[1][2] = -1 * a[1] * Y + b[2] * X;
-			m_poutBuffer[1][i] = Y;
+			X = m_pinBuffer[0][i];
+			Y = states[0][0] + b[0] * X;
+			states[0][0] = states[0][1] - a[0] * Y + b[1] * X;
+			states[0][1] = -1 * a[1] * Y + b[2] * X;
+
+			m_poutBuffer[0][i] = Y;
+
+			if (inumOfInputChannels > 1)
+			{
+				X = m_pinBuffer[1][i];
+				Y = states[1][0] + b[0] * X;
+				states[1][0] = states[1][1] - a[0] * Y + b[1] * X;
+				states[1][1] = -1 * a[1] * Y + b[2] * X;
+				m_poutBuffer[1][i] = Y;
+			}
+		}
+		else
+		{
+			m_poutBuffer[0][i] = m_pinBuffer[0][i];
+
+			if (inumOfInputChannels > 1)
+			{
+				m_poutBuffer[1][i] = m_pinBuffer[1][i];
+			}
 		}
 	}
+
+
 }
 void BasicBiquadFilter::reset()
 {
