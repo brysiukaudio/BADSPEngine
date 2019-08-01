@@ -154,6 +154,7 @@
     <ClCompile Include="Algorithms\Generic\FourtoTwoChannelMixer.cpp" />
     <ClCompile Include="Algorithms\Generic\Passthrough.cpp" />
     <ClCompile Include="Algorithms\Generic\TwotoOneNodeMixer.cpp" />
+    <ClCompile Include="Algorithms\Generic\BasicBiquadFilter.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Algorithms\Generic\FilterDesign.cpp" />
     <ClCompile Include="Third Party\pffft\pffft.c" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Algorithms\Generic\FourtoTwoChannelMixer.h" />
     <ClInclude Include="Algorithms\Generic\Passthrough.h" />
     <ClInclude Include="Algorithms\Generic\TwotoOneNodeMixer.h" />
+    <ClInclude Include="Algorithms\Generic\BasicBiquadFilter.h" />
     <ClInclude Include="Engine\AutoMixerMath.h" />
     <ClInclude Include="Engine\CircularBuffer.h" />
     <ClInclude Include="Engine\CircularBuffer16ByteAligned.h" />

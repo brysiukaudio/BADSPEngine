@@ -17,6 +17,7 @@
     <ClCompile Include="Algorithms\Automixer\RMS.cpp" />
     <ClCompile Include="Algorithms\Automixer\Selector.cpp" />
     <ClCompile Include="Algorithms\Generic\FilterDesign.cpp" />
+    <ClCompile Include="Algorithms\Generic\BasicBiquadFilter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\EngineDefinitions.h" />
@@ -37,5 +38,6 @@
     <ClInclude Include="Algorithms\Automixer\RMS.h" />
     <ClInclude Include="Algorithms\Automixer\Selector.h" />
     <ClInclude Include="Algorithms\Generic\FilterDesign.h" />
+    <ClInclude Include="Algorithms\Generic\BasicBiquadFilter.h" />
   </ItemGroup>
 </Project>
