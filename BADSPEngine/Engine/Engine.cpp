@@ -9,30 +9,44 @@ Copyright BrysiukAudio
 
 #include "Engine.h"
 
-Engine::Engine(double sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels)
+Engine::Engine(double sampleRate, int frameSize, int numOfChannels, int fixedFrameSize)
 {
 	this->sampleRate = sampleRate;
 	this->frameSize = frameSize;
-	this->numOfInputChannels = numOfInputChannels;
-	this->numOfOutputChannels = numOfOutputChannels;
-	this->inBuffer = new float*[numOfInputChannels]();
-	this->outBuffer = new float*[numOfOutputChannels]();
-	
-	for (int i = 0; i < this->numOfInputChannels; i++) {
-		this->inBuffer[i] = new float[frameSize]();
+	if (fixedFrameSize != 0)
+	{
+		this->fixedframeSize = fixedFrameSize;
+		unprocessedRemain = 0;
+		processedRemain = fixedFrameSize;
+		useFixedFrame = true;
 	}
-	for (int i = 0; i < this->numOfOutputChannels; i++) {
-		this->outBuffer[i] = new float[frameSize]();
+	this->numChannels = numOfChannels;
+	this->inBuffer = new float*[numChannels]();
+	this->outBuffer = new float*[numChannels]();
+	if (useFixedFrame)
+	{
+		this->processedRemainBuffer = new float*[numChannels]();
+		this->unprocessedRemainBuffer = new float*[numChannels]();
+		for (int i = 0; i < this->numChannels; i++)
+		{
+			this->processedRemainBuffer[i] = new float[fixedFrameSize];
+			this->unprocessedRemainBuffer[i] = new float[fixedFrameSize];
+		}
+	}
+	
+
+	
+	for (int i = 0; i < this->numChannels; i++) {
+		this->inBuffer[i] = useFixedFrame ? new float[fixedframeSize]() : new float[frameSize]();
+		this->outBuffer[i] = useFixedFrame ? new float[fixedframeSize]() : new float[frameSize]();
 	}
 
 }
 
 Engine::~Engine() {
-	for (int i = 0; i < this->numOfInputChannels; i++) {
+	for (int i = 0; i < this->numChannels; i++) {
 		delete[] this->inBuffer[i];
 		this->inBuffer[i] = nullptr;
-	}
-	for (int i = 0; i < this->numOfOutputChannels; i++) {
 		delete[] this->outBuffer[i];
 		this->outBuffer[i] = nullptr;
 	}
@@ -71,14 +85,80 @@ void Engine::processAudio(float ** liveIn, float ** liveOut) {
 	assert(liveIn != nullptr);
 	assert(liveOut != nullptr);
 	
-	for (int i = 0; i < this->numOfInputChannels; i++) {
-		memcpy(this->inBuffer[i], liveIn[i], this->frameSize*sizeof(float));
+
+	if (useFixedFrame)
+	{
+		int inRemain = this->frameSize;
+		int outCollected = 0;
+		int start = 0;
+		int outRemain = 0;
+		bool pulledFromLiveIn = false;
+
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(this->inBuffer[i], this->unprocessedRemainBuffer[i], unprocessedRemain * sizeof(float));
+			if (unprocessedRemain < fixedframeSize)
+			{
+				memcpy(this->inBuffer[i] + unprocessedRemain, liveIn[i], (fixedframeSize - unprocessedRemain) * sizeof(float));
+				pulledFromLiveIn = true;
+			}
+		}
+
+		if (pulledFromLiveIn) inRemain -= (fixedframeSize - unprocessedRemain);
+
+		this->process();
+
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(liveOut[i], this->processedRemainBuffer[i], processedRemain * sizeof(float));
+			outCollected = processedRemain;
+		}
+
+		
+
+		while (outCollected <= (frameSize - fixedframeSize) && inRemain >= fixedframeSize)
+		{
+			start = frameSize - inRemain;
+			for (int i = 0; i < this->numChannels; i++) {
+				memcpy(this->inBuffer[i], liveIn[i] + start, this->fixedframeSize * sizeof(float));
+			}
+
+			for (int i = 0; i < this->numChannels; i++) {
+				memcpy(liveOut[i] + outCollected, this->outBuffer[i], this->fixedframeSize * sizeof(float));
+			}
+
+			this->process();
+			inRemain -= fixedframeSize;
+			outCollected += fixedframeSize;
+		}
+
+		assert(frameSize - outCollected <= fixedframeSize);
+		assert(inRemain <= fixedframeSize);
+
+		start = frameSize - inRemain;
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(this->unprocessedRemainBuffer[i], liveIn[i] + start, inRemain * sizeof(float));
+		}
+		unprocessedRemain = inRemain;
+
+		outRemain = frameSize - outCollected;
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(liveOut[i] + outCollected, this->outBuffer[i], outRemain * sizeof(float));
+			memcpy(processedRemainBuffer[i], this->outBuffer[i] + outRemain, (fixedframeSize - outRemain) * sizeof(float));
+			processedRemain = (fixedframeSize - outRemain);
+		}
+
 	}
-	for (int i = 0; i < this->numOfOutputChannels; i++) {
-		memcpy(liveOut[i], this->outBuffer[i], this->frameSize*sizeof(float));
+	else
+	{
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(this->inBuffer[i], liveIn[i], this->frameSize * sizeof(float));
+		}
+		this->process();
+
+		for (int i = 0; i < this->numChannels; i++) {
+			memcpy(liveOut[i], this->outBuffer[i], this->frameSize * sizeof(float));
+		}
 	}
-	
-	this->process();
+
 }
 
 void Engine::init() {

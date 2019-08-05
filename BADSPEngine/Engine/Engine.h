@@ -16,15 +16,20 @@ class Engine {
 private:
 	float ** inBuffer;
 	float ** outBuffer;
+	float ** processedRemainBuffer;
+	float ** unprocessedRemainBuffer;
 	double sampleRate;
 	int frameSize;
-	int numOfInputChannels;
-	int numOfOutputChannels;
+	int fixedframeSize = 0;
+	int processedRemain = 0;
+	int unprocessedRemain = 0;
+	bool useFixedFrame = false;
+	int numChannels;
 	std::list<DSPComponent*> componentList;
 	
 
 public:
-	Engine(double sampleRate, int frameSize, int numOfInputChannels, int numOfOutputChannels);
+	Engine(double sampleRate, int frameSize, int numOfChannels, int fixedFrameSize = 0);
 	~Engine();
 
 
@@ -35,6 +40,8 @@ public:
 
 	float ** getInputBuffer();
 	float ** getOutputBuffer();
+
+	bool usingFixedFrame() { return useFixedFrame; };
 
 	void processAudio(float ** liveIn, float ** liveOut);
 
